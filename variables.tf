@@ -5,12 +5,12 @@ variable "aws_region" {
 
 variable "aws_access_key" {
   description = "Turbo user access key"
-  default     = "XXXX"
+  default     = "Update a local copy of this file or pass in overrides"
 }
 
 variable "aws_secret_key" {
   description = "Turbo user secret key"
-  default     = "XXXX"
+  default     = "Update a local copy of this file or pass in overrides"
 }
 
 variable "bucket_name" {

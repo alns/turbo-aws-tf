@@ -18,9 +18,9 @@ https://www.terraform.io/intro/index.html
 
 How do I use this? 
 ------------------
-0) Download and install Terraform (https://www.terraform.io/downloads.html)
+0) Download and install Terraform (https://www.terraform.io/downloads.html) or install from your favorite package manager (homebrew)
 1) CD into this directory
 2) If this is the first time running, launch 'Terraform init'
-3) Configure variables.tf as appropriate (see inline for doc)
-4) exec `terraform plan -out turbo_account_plan`
+3) Configure variables.tf as appropriate (see inline for doc, but you may also want to pass in over rides using the command line)
+4) exec `terraform plan -out turbo_account_plan` (use -var=FOO if you haven't updated variables.tf)
 5) if there are no errors exec `terraform apply turbo_account_plan`
