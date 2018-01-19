@@ -23,4 +23,4 @@ How do I use this?
 2) If this is the first time running, launch 'Terraform init'
 3) Configure variables.tf as appropriate (see inline for doc)
 4) exec `terraform plan -out turbo_account_plan`
-5) if there are no errors `exec terraform apply turbo_account_plan`
+5) if there are no errors exec `terraform apply turbo_account_plan`
