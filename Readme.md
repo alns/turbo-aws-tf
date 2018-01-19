@@ -2,10 +2,10 @@
 What is this?
 -------------
 This is a terraform project which will configure an AWS account for use with Turbonomic. It will
-1) Create (or update) a user for use with Turbonomic
-2) Create a RO and RW group for the user in #1
-3) Join the user to the RO group unless rw group is preferred (see below)
-4) Create an S3 bucket for the Turbonomic cost-and-usage report with appropriate permissions
+0) Create (or update) a user for use with Turbonomic
+1) Create a RO and RW group for the user in #1
+2) Join the user to the RO group unless rw group is preferred (see below)
+3) Create an S3 bucket for the Turbonomic cost-and-usage report with appropriate permissions
 
 What is Terraform?
 ------------------
@@ -16,7 +16,7 @@ Configuration files describe to Terraform the components needed to run a single 
 See below for more detail
 https://www.terraform.io/intro/index.html
 
-How do I use this? 
+How do I use this?
 ------------------
 0) Download and install Terraform (https://www.terraform.io/downloads.html) or install from your favorite package manager (homebrew)
 1) CD into this directory
