@@ -1,0 +1,47 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+        "Action": "ec2:Describe*",
+        "Effect": "Allow",
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": "elasticloadbalancing:Describe*",
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": "autoscaling:Describe*",
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "cloudwatch:ListMetrics",
+          "cloudwatch:GetMetricStatistics",
+          "cloudwatch:Describe*",
+          "logs:DescribeLogStreams",
+          "logs:GetLogEvents"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "rds:Describe*",
+          "rds:ListTagsForResource"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+            "s3:Get*",
+            "s3:List*"
+        ],
+        "Resource": "*"
+      }
+  ]
+}

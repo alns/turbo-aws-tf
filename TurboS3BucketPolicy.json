@@ -1,0 +1,27 @@
+{
+  "Version": "2012-10-17",
+  "Id": "TurboPolicyCUR",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "${aws_iam_user.lb.arn}"
+      },
+      "Action": [
+        "s3:GetBucketAcl",
+        "s3:GetBucketPolicy"
+      ],
+      "Resource": "arn:aws:s3:::${var.bucket_name}"
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "${aws_iam_user.lb.arn}"
+      },
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::${var.bucket_name}/*"
+    }
+  ]
+}
