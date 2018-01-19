@@ -5,12 +5,12 @@ variable "aws_region" {
 
 variable "aws_access_key" {
   description = "Turbo user access key"
-  default     = "AKIAIXN34L4FEMSLOTGA"
+  default     = "XXXX"
 }
 
 variable "aws_secret_key" {
   description = "Turbo user secret key"
-  default     = "rjbJmOjMXi0sn4eRUEWThMbmnba9g0Yg7Anu1WFA"
+  default     = "XXXX"
 }
 
 variable "bucket_name" {
