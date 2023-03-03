@@ -15,7 +15,7 @@ variable "aws_secret_key" {
 
 variable "bucket_name" {
   description = "lower case bucket name"
-  default     = "turbo-PM-test-bucket"
+  default     = "test_bucket"
 }
 
 variable "rw_user" {
@@ -24,5 +24,5 @@ variable "rw_user" {
 
 variable "user_name" {
   description = "If set to true, turbo users joins RW group"
-  default     = "TurbonomicUser"
+  default     = "username"
 }
