@@ -67,7 +67,15 @@ output "user_arn" {
 
 resource "aws_s3_bucket" "bucket" {
   bucket = "${var.bucket_name}"
+}
+
+resource "aws_s3_bucket_acl" "bucket_acl" {
+  bucket = aws_s3_bucket.bucket.id
   acl    = "private"
+}
+
+resource "aws_s3_bucket_cors_configuration" "bucket_cors" {
+  bucket = aws_s3_bucket.bucket.id
 
   cors_rule {
     allowed_headers = ["Authorization"]
@@ -75,8 +83,39 @@ resource "aws_s3_bucket" "bucket" {
     allowed_origins = ["*"]
     max_age_seconds = 3000
   }
+}
 
-  policy = <<POLICY
+resource "aws_s3_bucket_policy" "bucket_policy_from_another" {
+  bucket = aws_s3_bucket.bucket.id
+  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+
+}
+
+data "aws_iam_policy_document" "allow_access_from_another_account" {
+  statement {
+    principals {
+      type     = "AWS"
+      identifiers = [
+      		  "${aws_iam_user.lb.arn}",
+		  "386209384616"
+      ] 
+    }
+
+    actions = [
+       "s3:GetBucketAcl",
+       "s3:GetBucketPolicy",
+       "s3:PutObject"
+    ]
+
+    resources = [
+    	      aws_s3_bucket.bucket.arn,
+	      "${aws_s3_bucket.bucket.arn}/*"
+    ]
+  }
+}
+
+/*
+policy = <<POLICY
 {
   "Version": "2008-10-17",
   "Id": "TurboPolicyCUR",
@@ -108,6 +147,7 @@ resource "aws_s3_bucket" "bucket" {
 }
 POLICY
 }
+*/
 
 output "s3_cur_bucket_name" {
   value = "${var.bucket_name}"
