@@ -44,23 +44,24 @@ resource "aws_iam_group" "turbo_ro_group" {
   path = "/"
 }
 
-output "Group applied" {
+output "group_applied" {
   value = "${aws_iam_group_membership.turbo_access_group.group}"
 }
 
-output "User applied" {
+output "user_applied" {
   value = "${aws_iam_user.lb.name}"
 }
 
-output "User access key" {
+output "user_access_key" {
   value = "${aws_iam_access_key.lb.id}"
 }
 
-output "User secret" {
+output "user_secret" {
   value = "${aws_iam_access_key.lb.secret}"
+  sensitive = true
 }
 
-output "User ARN" {
+output "user_arn" {
   value = "${aws_iam_user.lb.arn}"
 }
 
@@ -108,10 +109,10 @@ resource "aws_s3_bucket" "bucket" {
 POLICY
 }
 
-output "S3 CUR bucket name" {
+output "s3_cur_bucket_name" {
   value = "${var.bucket_name}"
 }
 
-output "S3 CUR bucket path" {
+output "s3_cur_bucket_path" {
   value = "/"
 }
